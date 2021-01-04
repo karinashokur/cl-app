@@ -10,6 +10,9 @@ class CreateRisksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('seriousness');
+            $table->text('description')->nullable();
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->ondelete('cascade');
             $table->timestamps();
         });
     }

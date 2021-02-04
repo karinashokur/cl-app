@@ -8,7 +8,6 @@ class CreateTariffsTable extends Migration
     {
         Schema::create('tariffs', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('description')->nullable();
             $table->integer('technical_level');
             $table->decimal('price')->comment('Price / Hour');
             $table->integer('company_id')->unsigned();

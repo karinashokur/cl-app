@@ -9,8 +9,8 @@ class CreateDomainsTable extends Migration
         Schema::create('domains', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('domainable_id')->unsigned();
-            $table->integer('domainable_type');
+            $table->integer('domain_id')->unsigned();
+            $table->integer('domain_type');
         });
     }
     public function down()

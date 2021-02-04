@@ -2,18 +2,18 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateBillingsTable extends Migration
+class CreateFacturationsTable extends Migration
 {
     public function up()
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('project_name');
-            $table->string('compagny_name');
-            $table->string('compagny_address');
-            $table->string('compagny_phone');
-            $table->string('compagny_email');
-            $table->integer('compagny_siret');
+            $table->string('company_name');
+            $table->string('company_address');
+            $table->string('company_phone');
+            $table->string('company_email');
+            $table->integer('company_siret');
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_phone');

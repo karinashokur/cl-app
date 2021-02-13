@@ -4,13 +4,10 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $fillable = [
-      'name',
-      'address',
-      'phone',
-      'email'
+      'name', 'address', 'phone', 'email'
     ];
-    public function staff()
+    public function users()
     {
-      return $this->hasMany('users'); 
+      return $this->hasMany('users');
     }
 }

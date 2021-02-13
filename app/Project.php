@@ -12,7 +12,7 @@ class Project extends Model
     {
       return $this->hasMany('Task');
     }
-    public function projectManager()
+    public function owner()
     {
       return $this->belongsTo('User');
     }

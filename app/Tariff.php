@@ -6,8 +6,8 @@ class Tariff extends Model
     protected $fillable = [
       'technical_level', 'price'
     ];
-    public function company()
+    public function user()
     {
-      return $this->belongsTo('Company'); 
+      return $this->belongsTo('User');
     }
 }

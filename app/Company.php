@@ -10,4 +10,8 @@ class Company extends Model
     {
       return $this->hasMany('users');
     }
+    public function tarification()
+    {
+      return $this->hasMany('tariff');
+    }
 }

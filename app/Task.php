@@ -18,6 +18,6 @@ class Task extends Model
      }
      public function undertasks()
      {
-       return $this->hasMany('App\Task'); 
+       return $this->hasMany('App\Task');
      }
 }

@@ -8,10 +8,10 @@ class Company extends Model
     ];
     public function users()
     {
-      return $this->hasMany('users');
+      return $this->hasMany('App\User');
     }
     public function tarification()
     {
-      return $this->hasMany('tariff');
+      return $this->hasMany('App\Tariff');
     }
 }

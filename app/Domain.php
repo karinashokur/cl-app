@@ -8,10 +8,10 @@ class Domain extends Model
     ];
     public function project()
     {
-      return $this->belongsTo('App\Project');
+      return $this->belongsTo('Project');
     }
     public function fieldOfExpertize()
     {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('User'); 
     }
 }

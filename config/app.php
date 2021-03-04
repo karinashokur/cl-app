@@ -5,7 +5,7 @@ return [
     'debug' => env('APP_DEBUG', false),
     'url' => env('APP_URL', 'http:
     'timezone' => 'UTC',
-    'locale' => 'en',
+    'locale' => 'fr',
     'fallback_locale' => 'en',
     'key' => env('APP_KEY'),
     'cipher' => 'AES-256-CBC',

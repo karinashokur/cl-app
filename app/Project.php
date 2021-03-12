@@ -10,10 +10,10 @@ class Project extends Model
     ];
     public function tasks()
     {
-      return $this->hasMany('Task');
+      return $this->hasMany('App\Task');
     }
     public function owner()
     {
-      return $this->belongsTo('User');
+      return $this->belongsTo('App\User');
     }
 }

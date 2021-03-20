@@ -9,7 +9,7 @@ class TariffController extends Controller
       $tasks = Tariff::all();
       return view('tariff.index', compact('tariffs'));
     }
-    public function store(Request $request)
+    public function store(TariffRequest $request)
     {
       Tariff::create($request->all());
       response()->json('Task was successfuly stored.')->header('Content-type', 'text/plain');

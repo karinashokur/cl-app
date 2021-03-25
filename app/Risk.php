@@ -8,6 +8,6 @@ class Risk extends Model
     ];
     public function task()
     {
-      return $this->belongsTo('App\Task');
+      return $this->belongsTo('Task');
     }
 }

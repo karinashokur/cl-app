@@ -6,12 +6,13 @@ class TaskController extends Controller
 {
     public function index()
     {
+      $tasks = Task::all();
+      return view('task.index', compact('tasks'));
     }
-    public function create()
+    public function store(TaskRequest $request)
     {
-    }
-    public function store(Request $request)
-    {
+        Task::create($request->all());
+        response()->json('Task was successfuly stored.')->header('Content-type', 'text/plain');
     }
     public function show(Task $task)
     {
@@ -19,10 +20,14 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
     }
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
+        $request->update($request->all());
+        return response()->json('Task was successfuly updated.')->header('Content-type', 'text/plain');
     }
     public function destroy(Task $task)
     {
+        $task->delete();
+        return response()->json('Task was successfuly deleted.')->header('Content-type', 'text/plain');
     }
 }

@@ -12,7 +12,7 @@ class RiskController extends Controller
     public function store(RiskRequest $request)
     {
       Risk::create($request->all());
-      response()->json('Risk was successfuly stored.')->header('Content-type', 'text/plain');
+      response()->json('Risk was successfuly stored.', 200);
     }
     public function show(Risk $risk)
     {
@@ -23,11 +23,11 @@ class RiskController extends Controller
     public function update(Request $request, Risk $risk)
     {
       $request->update($request->all());
-      return response()->json('Risk was successfuly updated.')->header('Content-type', 'text/plain');
+      return response()->json('Risk was successfuly updated.', 200);
     }
     public function destroy(Risk $risk)
     {
       $risk->delete();
-      return response()->json('Risk was successfuly deleted.')->header('Content-type', 'text/plain');
+      return response()->json('Risk was successfuly deleted.', 200);
     }
 }

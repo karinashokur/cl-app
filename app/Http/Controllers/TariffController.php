@@ -12,7 +12,7 @@ class TariffController extends Controller
     public function store(TariffRequest $request)
     {
       Tariff::create($request->all());
-      response()->json('Task was successfuly stored.')->header('Content-type', 'text/plain');
+      response()->json('Task was successfuly stored.', 200);
     }
     public function show(Tariff $tariff)
     {
@@ -23,11 +23,11 @@ class TariffController extends Controller
     public function update(Request $request, Tariff $tariff)
     {
       Tariff::create($request->all());
-      response()->json('Tariff was successfuly stored.')->header('Content-type', 'text/plain');
+      response()->json('Tariff was successfuly stored.', 200);
     }
     public function destroy(Tariff $tariff)
     {
         $tariff->delete();
-        return response()->json('Tariff was successfuly deleted.')
+        return response()->json('Tariff was successfuly deleted.', 200)
     }
 }

@@ -11,18 +11,20 @@ class TaskController extends Controller
     }
     public function store(TaskRequest $request)
     {
-        Task::create($request->all());
-        response()->json('Task was successfuly stored.', 200);
+        $task = Task::create($request->all());
+        return response()->json('Task was successfuly stored.', 200);
     }
     public function show(Task $task)
     {
+        return view('task.edit', compact('task'));
     }
     public function edit(Task $task)
     {
+      return view('task.edit', compact('task'));
     }
     public function update(TaskRequest $request, Task $task)
     {
-        $request->update($request->all());
+        $task->update($request->all());
         return response()->json('Task was successfuly updated.', 200);
     }
     public function destroy(Task $task)

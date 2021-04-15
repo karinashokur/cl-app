@@ -12,18 +12,20 @@ class TariffController extends Controller
     public function store(TariffRequest $request)
     {
       Tariff::create($request->all());
-      response()->json('Task was successfuly stored.', 200);
+      return response()->json('Task was successfuly stored.', 200);
     }
     public function show(Tariff $tariff)
     {
+        return view('tariff.show', compact('tariff'));
     }
     public function edit(Tariff $tariff)
     {
+        return view('tariff.index', compact('tariff'));
     }
     public function update(Request $request, Tariff $tariff)
     {
       Tariff::create($request->all());
-      response()->json('Tariff was successfuly stored.', 200);
+      return response()->json('Tariff was successfuly stored.', 200);
     }
     public function destroy(Tariff $tariff)
     {

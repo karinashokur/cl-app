@@ -16,9 +16,11 @@ class RiskController extends Controller
     }
     public function show(Risk $risk)
     {
+        return view('risk.index', compact('risk'));
     }
     public function edit(Risk $risk)
     {
+        return view('risk.index', compact('risk'));
     }
     public function update(Request $request, Risk $risk)
     {

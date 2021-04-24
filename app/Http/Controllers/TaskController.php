@@ -7,7 +7,7 @@ class TaskController extends Controller
     public function index()
     {
       $tasks = Task::all();
-      return view('task.index', compact('tasks'));
+      return response()->json($tasks, 200);
     }
     public function store(TaskRequest $request)
     {
@@ -16,11 +16,11 @@ class TaskController extends Controller
     }
     public function show(Task $task)
     {
-        return view('task.edit', compact('task'));
+        return response()->json($task, 200);
     }
     public function edit(Task $task)
     {
-      return view('task.edit', compact('task'));
+      return response()->json($task, 200);
     }
     public function update(TaskRequest $request, Task $task)
     {

@@ -7,7 +7,7 @@ class RiskController extends Controller
     public function index()
     {
       $risks = Risk::all();
-      return view('risk.index', compact('risks'));
+      return response()->json($risks, 200);
     }
     public function store(RiskRequest $request)
     {
@@ -16,11 +16,11 @@ class RiskController extends Controller
     }
     public function show(Risk $risk)
     {
-        return view('risk.index', compact('risk'));
+        return response()->json($risk, 200);
     }
     public function edit(Risk $risk)
     {
-        return view('risk.index', compact('risk'));
+        return response()->json($risk, 200);
     }
     public function update(Request $request, Risk $risk)
     {

@@ -7,7 +7,7 @@ class TariffController extends Controller
     public function index()
     {
       $tasks = Tariff::all();
-      return view('tariff.index', compact('tariffs'));
+      return response()->json($tariffs, 200);
     }
     public function store(TariffRequest $request)
     {
@@ -16,11 +16,11 @@ class TariffController extends Controller
     }
     public function show(Tariff $tariff)
     {
-        return view('tariff.show', compact('tariff'));
+        return response()->json($tariff, 200);
     }
     public function edit(Tariff $tariff)
     {
-        return view('tariff.index', compact('tariff'));
+        return response()->json($tariff, 200);
     }
     public function update(Request $request, Tariff $tariff)
     {

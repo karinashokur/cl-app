@@ -1,4 +1,5 @@
 <?php
+use App\Company;
 use App\Customer;
 use App\Project;
 use App\User;
@@ -16,11 +17,14 @@ class BaseSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
         $this->command->info('Creating Default User named : admin with password : secret');
-        factory(Customer::class, 1)->create()->each(function($customer){
+        factory(Customer::class, 1)->create()->each(function ($customer) {
             $this->command->info("Creating Default Customer named : $customer->name");
         });
-        factory(Project::class, 1)->create()->each(function($project){
+        factory(Project::class, 1)->create()->each(function ($project) {
             $this->command->info("Creating Default Project named : $project->name");
+        });
+        factory(Company::class, 1)->create()->each(function ($company) {
+            $this->command->info("Creating Default Company named : $company->name");
         });
     }
 }

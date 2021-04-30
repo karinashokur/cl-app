@@ -7,29 +7,27 @@ class TaskController extends Controller
     public function index()
     {
       $tasks = Task::all();
-      return response()->json($tasks, 200);
+      return view('task.index', compact('tasks'));
     }
     public function store(TaskRequest $request)
     {
-        $task = Task::create($request->all());
-        return response()->json('Task was successfuly stored.', 200);
+        Task::create($request->all());
+        response()->json('Task was successfuly stored.')->header('Content-type', 'text/plain');
     }
     public function show(Task $task)
     {
-        return response()->json($task, 200);
     }
     public function edit(Task $task)
     {
-      return response()->json($task, 200);
     }
     public function update(TaskRequest $request, Task $task)
     {
-        $task->update($request->all());
-        return response()->json('Task was successfuly updated.', 200);
+        $request->update($request->all());
+        return response()->json('Task was successfuly updated.')->header('Content-type', 'text/plain');
     }
     public function destroy(Task $task)
     {
         $task->delete();
-        return response()->json('Task was successfuly deleted.', 200);
+        return response()->json('Task was successfuly deleted.')->header('Content-type', 'text/plain');
     }
 }

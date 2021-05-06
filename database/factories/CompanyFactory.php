@@ -2,11 +2,9 @@
 use Faker\Generator as Faker;
 $factory->define(App\Company::class, function (Faker $faker) {
     return [
-        'name'          => $faker->title,
+        'name'          => $faker->name,
         'email'         => $faker->email,
-        'phone'         => $faker->e164PhoneNumber,
-        'address'       => $faker->address,
-        'description'   => $faker->sentence,
-        'user_id'       => 1
+        'phone'         => $faker->phone,
+        'description'   => $faker->sentence
     ];
 });

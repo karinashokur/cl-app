@@ -38,8 +38,11 @@ class AuthController extends Controller
             return $user->createToken('intersession');
         }
     }
-    public function user(Request $request)
+    public function validator($credentials)
     {
-        return $request->user();
+        return Validator::make($credentials, [
+            'email'     => 'required|email',
+            'password'  => 'required'
+        ]);
     }
 }

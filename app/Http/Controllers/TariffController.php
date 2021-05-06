@@ -24,7 +24,7 @@ class TariffController extends Controller
     }
     public function update(Request $request, Tariff $tariff)
     {
-      Tariff::create($request->all());
+      $tariff->update($request->all());
       return response()->json('Tariff was successfuly stored.', 200);
     }
     public function destroy(Tariff $tariff)

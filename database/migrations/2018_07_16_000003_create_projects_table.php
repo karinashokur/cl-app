@@ -11,8 +11,8 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->decimal('budget');
             $table->string('description')->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();

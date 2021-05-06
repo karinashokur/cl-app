@@ -31,7 +31,7 @@ class ApiAuthTest extends TestCase
     {
         $response = $this->withHeaders([
             'Authorization' => 'Bearer ' . json_decode($this->response->getContent('token'))->accessToken
-        ])->get('/api/auth/user');
+        ])->get('/api/user');
         $response->assertOk()
                  ->assertSee('user@user.com');
     }

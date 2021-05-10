@@ -15,4 +15,24 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Tariff');
     }
+    public function projects()
+    {
+        return $this->hasMany('App\Project');
+    }
+    public function companies()
+    {
+        return $this->belongsToMany('App\Company');
+    }
+    public function ownedCompanies()
+    {
+        return $this->hasMany('App\Company');
+    }
+    public function hasProjects()
+    {
+        return $this->projects()->exists();
+    }
+    public function hasCompany()
+    {
+        return $this->ownedCompanies()->exists();
+    }
 }

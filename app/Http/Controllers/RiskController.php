@@ -24,7 +24,7 @@ class RiskController extends Controller
     }
     public function update(Request $request, Risk $risk)
     {
-      $risk->update($request->all());
+      $request->update($request->all());
       return response()->json('Risk was successfuly updated.', 200);
     }
     public function destroy(Risk $risk)

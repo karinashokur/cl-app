@@ -24,5 +24,7 @@ class DomainController extends Controller
     }
     public function destroy(Domain $domain)
     {
+      $domain->delete();
+      return response()->json('Project was successfuly deleted', 200);
     }
 }

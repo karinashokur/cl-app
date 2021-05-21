@@ -28,6 +28,7 @@ class BaseSeeder extends Seeder
             $this->command->info("Creating Default Company named : $company->name");
         });
         factory(Task::class, 2)->create()->each(function ($task) {
+            factory(Task::class, 2)->create([ 'task_id' => $task->id ]);
             $this->command->info("Creating Default Task named : $task->name");
         });
     }

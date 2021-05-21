@@ -19,6 +19,32 @@ class TaskTest extends TestCase
     {
         $response = $this->get('api/task');
         $response->assertOk()
-                ->assertSee(Task::all()->toJson());
+                ->assertSee(Task::first()->undertasks->first()->name);
+    }
+    public function display_a_tasks()
+    {
+        $response = $this->get('api/task/1');
+        $response->assertOk()
+                ->assertSee(Task::first()->name);
+    }
+    public function create_a_tasks()
+    {
+        $task = factory('App\Task')->make();
+        $response = $this->post('api/task', $task->toArray());
+        $response->assertOk()
+                ->assertSee($task['name']);
+    }
+    public function update_a_tasks()
+    {
+        $task = factory('App\Task')->create();
+        $response = $this->put('api/task/' . $task->id, ['name' => 'NewName']);
+        $response->assertOk()
+                ->assertSee('NewName');
+    }
+    public function delete_a_tasks()
+    {
+        $task = factory('App\Task')->create();
+        $response = $this->delete('api/task/' . $task->id);
+        $response->assertStatus(204);
     }
 }

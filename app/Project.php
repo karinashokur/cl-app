@@ -16,4 +16,8 @@ class Project extends Model
     {
       return $this->belongsTo('App\User');
     }
+    public function domains()
+    {
+      return $this->morphMany('App\Domain', 'domainable'); 
+    }
 }

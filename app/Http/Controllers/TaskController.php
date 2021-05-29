@@ -6,30 +6,30 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::with('undertasks')->get()->toJson();
-        return response()->json($tasks, 200);
+      $tasks = Task::all();
+      return response()->json($tasks, 200);
     }
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         $task = Task::create($request->all());
-        return response()->json($task->toJson(), 200);
+        return response()->json('Task was successfuly stored.', 200);
     }
     public function show(Task $task)
     {
-        return response()->json($task->load('undertasks')->toJson(), 200);
+        return response()->json($task, 200);
     }
     public function edit(Task $task)
     {
-        return response()->json($task::with('undertasks')->toJson(), 200);
+      return response()->json($task, 200);
     }
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
         $task->update($request->all());
-        return response()->json($task->load('undertasks')->toJson(), 200);
+        return response()->json('Task was successfuly updated.', 200);
     }
     public function destroy(Task $task)
     {
         $task->delete();
-        return response()->json(null, 204);
+        return response()->json('Task was successfuly deleted.', 200);
     }
 }

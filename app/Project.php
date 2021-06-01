@@ -18,6 +18,10 @@ class Project extends Model
     }
     public function domains()
     {
-      return $this->morphMany('App\Domain', 'domainable'); 
+      return $this->morphMany('App\Domain', 'domainable');
+    }
+    public function customers()
+    {
+      return $this->hasMany('App\Customer'); 
     }
 }

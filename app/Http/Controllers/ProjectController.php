@@ -20,7 +20,7 @@ class ProjectController extends Controller
     }
     public function edit(Project $project)
     {
-        return $response->json($project, 200);
+        return response()->json($project, 200);
     }
     public function update(Request $request, Project $project)
     {

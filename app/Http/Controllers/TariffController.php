@@ -9,7 +9,7 @@ class TariffController extends Controller
       $tasks = Tariff::all();
       return response()->json($tariffs, 200);
     }
-    public function store(Request $request)
+    public function store(TariffRequest $request)
     {
       Tariff::create($request->all());
       return response()->json('Task was successfuly stored.', 200);

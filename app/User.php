@@ -20,6 +20,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Project');
     }
+    public function hasProjects()
+    {
+        return $this->projects()->exists();
+    }
     public function companies()
     {
         return $this->belongsToMany('App\Company');
@@ -31,6 +35,10 @@ class User extends Authenticatable
     public function hasCompany()
     {
         return $this->ownedCompanies()->exists();
+    }
+    public function domains()
+    {
+      return $this->morphMany('App\Domain', 'domainable');
     }
     public function hasProjects()
     {

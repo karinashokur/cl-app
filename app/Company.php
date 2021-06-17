@@ -10,7 +10,7 @@ class Company extends Model
     {
         return $this->belongsToMany('App\User');
     }
-    public function tarification()
+    public function tariffs()
     {
         return $this->hasMany('App\Tariff');
     }

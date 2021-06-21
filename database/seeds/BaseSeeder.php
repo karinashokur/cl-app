@@ -2,8 +2,6 @@
 use App\Company;
 use App\Customer;
 use App\Project;
-use App\Risk;
-use App\Task;
 use App\User;
 use Illuminate\Database\Seeder;
 class BaseSeeder extends Seeder
@@ -27,15 +25,6 @@ class BaseSeeder extends Seeder
         });
         factory(Company::class, 1)->create()->each(function ($company) {
             $this->command->info("Creating Default Company named : $company->name");
-        });
-        factory(Task::class, 2)->create()->each(function ($task) {
-            factory(Task::class, 2)->create([ 'task_id' => $task->id ]);
-            $this->command->info("Creating Default Task named : $task->name");
-        });
-        factory(Task::class, 2)->create()->each(function ($task) {
-            factory(Risk::class, 2)->create([ 'task_id' => $task->id ])->each(function ($risk) {
-                $this->command->info("Creating Default Risk named : $risk->name");
-            });
         });
     }
 }

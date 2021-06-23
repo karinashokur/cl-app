@@ -1,12 +1,13 @@
 <?php
 namespace App;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'lastname', 'phone', 'password'
     ];
     protected $hidden = [
         'password', 'remember_token',
@@ -37,6 +38,10 @@ class User extends Authenticatable
     }
     public function domains()
     {
-      return $this->morphMany('App\Domain', 'domainable')
+      return $this->morphMany('App\Domain', 'domainable');
+    }
+    public function hasProjects()
+    {
+        return $this->projects()->exists();
     }
 }

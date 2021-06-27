@@ -13,7 +13,10 @@ class UserTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        Passport::actingAs(factory(User::class)->create());
+        Passport::actingAs(
+            factory(User::class)->create(),
+            ['create-servers']
+        );
     }
     public function display_all_users()
     {

@@ -22,6 +22,10 @@ class Project extends Model
     }
     public function customers()
     {
-      return $this->hasMany('App\Customer'); 
+      return $this->hasMany('App\Customer');
+    }
+    public function date()
+    {
+      return $this->hasOne('App\Date'); 
     }
 }

@@ -11,7 +11,7 @@ class CreateTariffsTable extends Migration
             $table->string('technical_level');
             $table->decimal('price')->comment('Price / Hour');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,8 +11,8 @@ class DomainController extends Controller
     }
     public function store(Request $request)
     {
-      Domain::create($request->all());
-      return response()->json('Domain was successfuly stored.', 200);
+      $domain = Domain::create($request->all());
+      return response()->json($domain, 200);
     }
     public function show(Domain $domain)
     {
@@ -25,11 +25,11 @@ class DomainController extends Controller
     public function update(Request $request, Domain $domain)
     {
       $domain->update($request->all());
-      return response()->json('Domain was successfuly updated.', 200);
+      return response()->json($domain, 200);
     }
     public function destroy(Domain $domain)
     {
       $domain->delete();
-      return response()->json('Domain was successfuly deleted', 200);
+      return response()->json(null, 204);
     }
 }

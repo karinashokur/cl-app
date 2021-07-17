@@ -8,6 +8,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('task', 'TaskController')->except('create');
     Route::resource('risk', 'RiskController')->except('create');
     Route::resource('tariff', 'TariffController')->except('create');
+    Route::resource('customer', 'CustomerController')->except('create');
     Route::post('undertask/{task}', 'UnderTaskController@store')->name('undertask.store');
     Route::delete('undertask/{task}', 'UnderTaskController@destroy')->name('undertask.destroy');
 });
